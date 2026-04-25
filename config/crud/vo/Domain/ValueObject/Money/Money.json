@@ -1,0 +1,23 @@
+{
+    "valueObject": {
+        "class": "Domain\\ValueObject\\Money\\Money",
+        "ui": {
+            "parts": {
+                "amount": {
+                    "type": "text",
+                    "cssClasses": ["js-money-amount"],
+                    "attributes": {
+                        "inputmode": "decimal",
+                        "data-decimal-places": "2",
+                        "autocomplete": "off"
+                    },
+                    "placeholder": "0.00",
+                    "required": true
+                },
+                "currency": {
+                    "cssClasses": ["js-money-currency"]
+                }
+            }
+        }
+    }
+}
