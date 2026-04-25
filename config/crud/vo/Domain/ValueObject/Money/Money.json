@@ -5,17 +5,16 @@
             "parts": {
                 "amount": {
                     "type": "text",
-                    "cssClasses": ["js-money-amount"],
+                    "cssClasses": ["money-amount"],
                     "attributes": {
                         "inputmode": "decimal",
                         "data-decimal-places": "2",
                         "autocomplete": "off"
                     },
-                    "placeholder": "0.00",
-                    "required": true
+                    "placeholder": "0.00"
                 },
                 "currency": {
-                    "cssClasses": ["js-money-currency"]
+                    "cssClasses": ["money-currency"]
                 }
             }
         }
