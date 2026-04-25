@@ -1,0 +1,107 @@
+stages:
+  - install
+  - analyze
+  - test
+
+variables:
+  COMPOSER_CACHE_DIR: "$CI_PROJECT_DIR/.cache/composer"
+
+# Reusable SSH setup steps (requires $SSH_PRIVATE_KEY CI/CD variable)
+.ssh_setup:
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -p 2222 gitlab.foreline.ru >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# --- Install ---
+
+.composer_job:
+  stage: install
+  before_script:
+    - !reference [.ssh_setup, before_script]
+  script:
+    - composer install --prefer-dist --no-interaction --no-progress
+  cache:
+    key:
+      files:
+        - composer.lock
+    paths:
+      - .cache/composer
+      - vendor/
+    policy: pull-push
+  artifacts:
+    paths:
+      - vendor/
+    expire_in: 1 hour
+
+composer:8.1:
+  extends: .composer_job
+  image: php:8.1-cli
+
+composer:8.2:
+  extends: .composer_job
+  image: php:8.2-cli
+
+composer:8.3:
+  extends: .composer_job
+  image: php:8.3-cli
+
+# --- Analyze ---
+
+phpstan:
+  stage: analyze
+  image: php:8.3-cli
+  needs:
+    - composer:8.3
+  cache:
+    key:
+      files:
+        - composer.lock
+    paths:
+      - .cache/composer
+      - vendor/
+    policy: pull
+  script:
+    - vendor/bin/phpstan analyse --no-progress
+
+# --- Test ---
+
+.phpunit_job:
+  stage: test
+  cache:
+    key:
+      files:
+        - composer.lock
+    paths:
+      - .cache/composer
+      - vendor/
+    policy: pull
+  script:
+    - vendor/bin/phpunit --colors=never
+
+phpunit:8.1:
+  extends: .phpunit_job
+  image: php:8.1-cli
+  needs:
+    - composer:8.1
+  coverage: '/^\s*Lines:\s*\d+.\d+\%/'
+  artifacts:
+    when: always
+    reports:
+      junit: junit.xml
+    expire_in: 1 week
+
+phpunit:8.2:
+  extends: .phpunit_job
+  image: php:8.2-cli
+  needs:
+    - composer:8.2
+
+phpunit:8.3:
+  extends: .phpunit_job
+  image: php:8.3-cli
+  needs:
+    - composer:8.3
