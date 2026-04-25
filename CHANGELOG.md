@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2026-04-25
+
 ### Fixed
 - Install openssh-client in Docker images for SSH support in CI pipeline
 
