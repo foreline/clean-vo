@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Install openssh-client in Docker images for SSH support in CI pipeline
+
 ### Changed
 - Clean up CSS class naming in value object configurations (removed 'js-' prefix)
 - Make Money amount field optional by removing 'required' attribute
