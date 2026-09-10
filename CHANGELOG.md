@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2026-09-10
+
+### Changed
+- Allow foreline/clean 3.x with the explicit SourceHolderInterface getter contract.
+
 ## [0.0.3] - 2026-04-25
 
 ### Fixed
