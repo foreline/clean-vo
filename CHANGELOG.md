@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-07
+
+### Fixed
+- `Url` accepts scheme-less addresses, normalizing them with an `https://` prefix (matches existing consumer behavior and legacy stored values like `portal.bitrix24.ru`)
+
 ## [0.1.0] - 2026-10-07
 
 ### Added

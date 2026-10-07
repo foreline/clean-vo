@@ -53,6 +53,18 @@ class UrlTest extends TestCase
     /**
      * @return void
      */
+    public function testConstructAddsSchemeWhenMissing(): void
+    {
+        // Arrange
+        $url = new Url('portal.bitrix24.ru/rest/1/abc/');
+
+        // Act & Assert
+        static::assertSame('https://portal.bitrix24.ru/rest/1/abc/', (string) $url, 'Failed asserting scheme normalization');
+    }
+
+    /**
+     * @return void
+     */
     public function testConstructEmptyUrlIsAllowed(): void
     {
         // Arrange

@@ -14,12 +14,18 @@ class Url implements UrlValueObjectInterface
     private string $value;
 
     /**
+     * Значение без схемы дополняется https:// (как в BitrixRest::setCrmUrl).
+     *
      * @param string $value URL-адрес
      * @throws InvalidArgumentException
      */
     public function __construct(string $value)
     {
         $value = trim($value);
+
+        if ( '' !== $value && !str_contains($value, '://') ) {
+            $value = 'https://' . $value;
+        }
 
         if ( '' !== $value && false === filter_var($value, FILTER_VALIDATE_URL) ) {
             throw new InvalidArgumentException(sprintf('Некорректный URL-адрес: "%s"', $value));
