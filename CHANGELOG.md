@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-14
+
 ### Added
 - `CronExpression` value object (plain `StringValueObjectInterface`) validating cron expressions via `dragonmantank/cron-expression`; empty value means "not set" (e.g. keep the default schedule)
 
