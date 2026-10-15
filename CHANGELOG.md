@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - 2026-10-15
 
+### Changed
+- Refresh the dependency lock to foreline/clean v3.2.0 with empty defaults for the text VO family.
+
 ### Fixed
 - Implement the required integer conversion on NetworkIdentifier\Port so the class can load.
 
