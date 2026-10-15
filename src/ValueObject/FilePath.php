@@ -14,7 +14,7 @@ class FilePath implements StringValueObjectInterface
     /**
      * @param string $value Относительный путь
      */
-    public function __construct(string $value)
+    public function __construct(string $value = '')
     {
         $this->relativePath = $value;
     }

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-15
+
+### Fixed
+- Implement the required integer conversion on NetworkIdentifier\Port so the class can load.
+
+### Added
+- Empty constructor defaults for Url, Token, CronExpression and FilePath; Money defaults to zero in the existing default currency (RUB).
+
 ## [0.2.0] - 2026-10-14
 
 ### Added

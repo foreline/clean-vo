@@ -54,6 +54,12 @@ class Port implements IntValueObjectInterface
     {
         return $this->port;
     }
+
+    /** Integer representation required by IntValueObjectInterface. */
+    public function __toInteger(): int
+    {
+        return $this->port;
+    }
     
     /**
      * Check if this is a well-known port (1-1023)

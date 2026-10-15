@@ -14,7 +14,7 @@ class Token implements TokenValueObjectInterface
     /**
      * @param string $value Значение токена
      */
-    public function __construct(string $value)
+    public function __construct(string $value = '')
     {
         $this->value = trim($value);
     }

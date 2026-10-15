@@ -25,7 +25,7 @@ class Money implements MixedValueObjectInterface
      * @param float $amount
      * @param string $currency
      */
-    public function __construct(float $amount, string $currency = '')
+    public function __construct(float $amount = 0.0, string $currency = '')
     {
         $this->amount = (int) round($amount * self::MULTIPLIER);
         $this->currency = new Currency($currency);

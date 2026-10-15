@@ -21,7 +21,7 @@ class CronExpression implements StringValueObjectInterface
      * @param string $value Cron-выражение
      * @throws InvalidArgumentException
      */
-    public function __construct(string $value)
+    public function __construct(string $value = '')
     {
         $value = trim($value);
 

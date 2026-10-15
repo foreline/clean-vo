@@ -19,7 +19,7 @@ class Url implements UrlValueObjectInterface
      * @param string $value URL-адрес
      * @throws InvalidArgumentException
      */
-    public function __construct(string $value)
+    public function __construct(string $value = '')
     {
         $value = trim($value);
 
