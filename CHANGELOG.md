@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-16
+
+### Added
+- Extensible Link value object and generated LinkCollection, with value equality and no entity identity.
+- Shared URI building/parsing services and framework-neutral page metadata, public-resource fetching and icon decoding services.
+- ValueObjectData codec for structured values and ordered collections at JSON and relational column boundaries.
+- Shipped Link editor configuration; generic ownership and cardinality remain PHP type semantics.
+
+### Changed
+- Require foreline/clean >=2.11 for length-aware text values; declare URI-resolution and IDN dependencies.
+
 ## [0.3.0] - 2026-10-15
 
 ### Changed

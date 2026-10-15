@@ -1,0 +1,14 @@
+{
+  "valueObject": {
+    "class": "Domain\\ValueObject\\Link",
+    "ui": {
+      "parts": {
+        "url": {"type": "text", "placeholder": "https://example.org", "attributes": {"autocomplete": "url"}},
+        "scheme": {"placeholder": "https"},
+        "port": {"type": "number", "attributes": {"min": "0", "max": "65535"}},
+        "description": {"type": "textarea"},
+        "favicon": {"type": "hidden"}
+      }
+    }
+  }
+}
