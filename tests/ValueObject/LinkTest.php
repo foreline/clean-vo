@@ -13,6 +13,17 @@ use PHPUnit\Framework\TestCase;
 
 class LinkTest extends TestCase
 {
+    public function testEditorDefaultsKeepDerivedFieldsHiddenWithoutChangingValueRoundTrip(): void
+    {
+        $config = json_decode(file_get_contents(__DIR__ . '/../../config/crud/vo/Domain/ValueObject/Link.json'), true, 512, JSON_THROW_ON_ERROR);
+        foreach (['scheme', 'ip', 'port', 'favicon'] as $part) {
+            self::assertSame('hidden', $config['valueObject']['ui']['parts'][$part]['type']);
+        }
+        self::assertSame('textarea', $config['valueObject']['ui']['parts']['description']['type']);
+        $link = new Link(url: new ShortText('example.org'), scheme: new ShortText('https'), ip: new ShortText('192.0.2.1'), port: 443);
+        self::assertTrue($link->equals(ValueObjectData::decode(Link::class, ValueObjectData::encode($link))));
+    }
+
     public function testUriUsesAuthorityPortAndSupportsIpv6(): void
     {
         $builder = new BuildLinkUri();

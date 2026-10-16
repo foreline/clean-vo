@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-10-16
+
+### Changed
+- Link editor defaults hide scheme, IP and port while retaining them in the serialized value for metadata autofill and persistence. Applications can override individual parts; description remains a visible textarea by default.
+
 ## [0.4.0] - 2026-10-16
 
 ### Added
