@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.4] - 2026-10-17
+
+### Fixed
+- Remove conflicting item storage declarations from EmailCollection, MacAddressCollection, URICollection and DomainCollection; initialization belongs to CollectionTrait.
+- Clear collections to an empty array, reset the cursor on replacement, validate replacements before changing state and support self-assignment and self-append.
+
 ## 2026-10-17
 
 - chore(deps): require clean 3.3.1 without Webmozart

@@ -17,9 +17,6 @@ class EmailCollection implements CollectionInterface
 {
     use CollectionTrait;
     
-    /** @var ?Email[] */
-    private array $items = [];
-    
     /**
      * @return ?Email
      */
@@ -63,14 +60,14 @@ class EmailCollection implements CollectionInterface
     }
     
     /**
-     * Add multiple emails to collection
+     * Добавляет снимок элементов, включая безопасное добавление коллекции к самой себе.
      * 
      * @param CollectionInterface $items
      * @return self
      */
     public function addItems(CollectionInterface $items): self
     {
-        foreach ($items as $item) {
+        foreach ($items->getCollection() ?? [] as $item) {
             $this->addItem($item);
         }
         
@@ -78,23 +75,23 @@ class EmailCollection implements CollectionInterface
     }
     
     /**
-     * Set items from iterator
+     * Заменяет элементы после проверки типов; null очищает коллекцию.
      * 
      * @param ?\Iterator $items
      * @return self
      */
     public function setItems(?\Iterator $items): self
     {
-        if ($items === null) {
-            $this->items = null;
-            return $this;
+        $replacement = new self();
+        if (null !== $items) {
+            foreach ($items as $item) {
+                $replacement->addItem($item);
+            }
         }
-        
-        $this->items = [];
-        foreach ($items as $item) {
-            $this->addItem($item);
-        }
-        
+
+        $this->items = $replacement->items;
+        $this->position = 0;
+
         return $this;
     }
     
