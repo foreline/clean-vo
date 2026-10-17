@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": ">=8.1",
-        "foreline/clean": ">=3.3 <4.0",
+        "foreline/clean": "^3.3.1",
         "dragonmantank/cron-expression": "^3.4",
         "guzzlehttp/psr7": "^2.8",
         "symfony/polyfill-intl-idn": "^1.33"

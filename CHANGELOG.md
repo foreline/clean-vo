@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-17
+
+- chore(deps): require clean 3.3.1 without Webmozart
+
 ## [0.4.2] - 2026-10-17
 
 ### Changed
