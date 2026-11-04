@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f8b7f285197d8fc8665774252d4caf1",
+    "content-hash": "b5bbd23cb56ebba82c2eb46bc4c5bba5",
     "packages": [
         {
             "name": "brick/math",
@@ -135,7 +135,7 @@
             "version": "v3.3.1",
             "source": {
                 "type": "git",
-                "url": "ssh://git@gitlab.foreline.ru:2222/foreline/clean.git",
+                "url": "git@github.com:foreline/clean.git",
                 "reference": "39deb3c99b31f3dbc702af2a3bab2a71b5967e53"
             },
             "require": {

@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../../.schemas/value_object.json",
     "valueObject": {
         "class": "Domain\\ValueObject\\Money\\Money",
         "ui": {

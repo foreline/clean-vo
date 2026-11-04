@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.4.5] - 2026-11-04
+
+### Fixed
+- Restore the value objects, link services and network collection fixes from 0.4.4 while preserving newer configuration schema changes and GitHub dependency sources.
+
 ## [0.4.4] - 2026-10-17
 
 ### Fixed
