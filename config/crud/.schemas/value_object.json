@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Value Object Configuration",
+    "description": "Schema for foreline/crud value-object configuration files (config/crud/vo/**/*.json and vendor-shipped vo configs)",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
+        },
+        "valueObject": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "type": "string",
+                    "description": "Fully-qualified class name of the value object (e.g. \"Domain\\\\ValueObject\\\\Money\\\\Money\"). Optional when the file path encodes the FQCN."
+                },
+                "ui": {
+                    "type": "object",
+                    "properties": {
+                        "parts": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "description": "HTML input type override (e.g. \"text\", \"number\", \"tel\"). Ignored for parts rendered as <select>."
+                                    },
+                                    "cssClasses": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "CSS classes appended to the inner <input> / <select> element"
+                                    },
+                                    "containerCssClasses": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "description": "CSS classes appended to the inner field's wrapper <div>"
+                                    },
+                                    "attributes": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        },
+                                        "description": "HTML attributes emitted verbatim on the inner element. Names and values are HTML-escaped."
+                                    },
+                                    "placeholder": {
+                                        "type": "string",
+                                        "description": "Placeholder text for the inner input"
+                                    },
+                                    "required": {
+                                        "type": "boolean",
+                                        "description": "Whether the inner field is required (defaults to true for int/float branches)"
+                                    }
+                                },
+                                "description": "UI configuration for a single inner field of the value object"
+                            },
+                            "description": "Inner-field configuration map, keyed by the value object's inner property name (e.g. \"amount\", \"currency\", \"address\")"
+                        }
+                    },
+                    "description": "User-interface configuration for the value object"
+                }
+            },
+            "description": "Configuration for a single value object, identified by its fully-qualified class name"
+        }
+    }
+}
