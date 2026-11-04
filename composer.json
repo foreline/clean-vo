@@ -53,7 +53,7 @@
     "repositories": [
         {
             "type": "git",
-            "url": "ssh://git@gitlab.foreline.ru:2222/foreline/clean.git"
+            "url": "ssh://git@github.com:foreline/clean.git"
         }
     ]
 }
