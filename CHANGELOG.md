@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-23
+
+- chore(deps): require foreline/clean v3.4.1
+
 ## 2026-11-08
 
 - chore(deps): require foreline/clean v3.4.0
